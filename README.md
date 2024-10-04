@@ -8,6 +8,29 @@ A simple Go application that organizes files into directories based on their fil
 - Dynamically creates folders for each unique file extension.
 - Allows users to specify a directory to organize via command-line arguments.
 
+### Before
+
+```bash
+/path/to/your/directory/
+├── document1.txt
+├── image1.jpg
+├── script.go
+└── notes.txt
+```
+
+### After
+
+```bash
+/path/to/your/directory/
+├── go/
+│   └── script.go
+├── jpg/
+│   └── image1.jpg
+└── txt/
+    ├── document1.txt
+    └── notes.txt
+```
+
 ## Download(s)
 
 You can download a precompiled version of the File Organizer for your operating system:
