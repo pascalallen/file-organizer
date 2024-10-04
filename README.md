@@ -1,5 +1,11 @@
 # File Organizer
 
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/pascalallen/file-organizer)
+[![Go Report Card](https://goreportcard.com/badge/github.com/pascalallen/file-organizer)](https://goreportcard.com/report/github.com/pascalallen/file-organizer)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/pascalallen/file-organizer/go.yml)
+![GitHub](https://img.shields.io/github/license/pascalallen/file-organizer)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/pascalallen/file-organizer)
+
 A simple Go application that organizes files into directories based on their file extensions. It moves files with the same extension into respective folders (e.g., `.txt` files will go into a `txt/` folder, `.jpg` files will go into a `jpg/` folder, and so on).
 
 ## Features
