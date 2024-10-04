@@ -8,85 +8,26 @@ A simple Go application that organizes files into directories based on their fil
 - Dynamically creates folders for each unique file extension.
 - Allows users to specify a directory to organize via command-line arguments.
 
-## Prerequisites
+## Download(s)
 
-- [Go](https://golang.org/doc/install) (version 1.15+)
-- A directory with files to organize.
+You can download a precompiled version of the File Organizer for your operating system:
 
-## Installation
-
-1. Clone the repository or download the source code:
-
-    ```bash
-    git clone https://github.com/pascalallen/file-organizer.git
-    cd file-organizer
-    ```
-
-2. Initialize Go modules:
-
-    ```bash
-    go mod init file-organizer
-    ```
+- [Download for Linux](https://github.com/pascalallen/file-organizer/releases/download/v1.0.0/file-organizer-linux)
+- [Download for macOS](https://github.com/pascalallen/file-organizer/releases/download/v1.0.0/file-organizer-macos)
+- [Download for Windows](https://github.com/pascalallen/file-organizer/releases/download/v1.0.0/file-organizer-windows.exe)
 
 ## Usage
 
-1. Run the program, specifying the directory you want to organize:
+Once downloaded, you can run the program from the command line, specifying the directory you want to organize.
 
-    ```bash
-    go run main.go /path/to/your/directory
-    ```
-
-   For example, to organize files in the `downloads` folder in the current directory:
-
-    ```bash
-    go run main.go ./downloads
-    ```
-
-2. The application will:
-    - Create folders based on file extensions (e.g., `txt/`, `jpg/`, `go/`).
-    - Move files into their respective extension-based folders.
-
-## Example
-
-Before running the program, assume you have the following files in your `downloads` directory:
+### Linux/macOS:
 
 ```bash
-downloads/
-│
-├── document1.txt
-├── image1.jpg
-├── script.go
-└── notes.txt
+./file-organizer-macos /path/to/your/directory
 ```
 
-After running:
+### Windows
 
 ```bash
-go run main.go ./downloads
+file-organizer-windows.exe C:\path\to\your\directory
 ```
-
-The directory will be organized as:
-
-```bash
-downloads/
-│
-├── go/
-│   └── script.go
-├── jpg/
-│   └── image1.jpg
-└── txt/
-    ├── document1.txt
-    └── notes.txt
-```
-
-## Error Handling
-
-If no directory is provided, the program will display an error message:
-
-```bash
-Please provide a directory to organize. Usage: ./file-organizer <directory>
-```
-
-## License
-
-[MIT](LICENSE)
