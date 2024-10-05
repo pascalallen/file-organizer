@@ -6,13 +6,19 @@
 ![GitHub](https://img.shields.io/github/license/pascalallen/file-organizer)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/pascalallen/file-organizer)
 
-A simple Go application that organizes files into directories based on their file extensions. It moves files with the same extension into respective folders (e.g., `.txt` files will go into a `txt/` folder, `.jpg` files will go into a `jpg/` folder, and so on).
+<img src="logo.png" alt="File Organizer Logo" width="200"/>
+
+**File Organizer** is a desktop app that organizes your files into directories based on their file extensions. 
+Available for macOS, Linux, and Windows, it provides an intuitive way to keep your files neatly categorized.
 
 ## Features
 
-- Organizes files based on their extensions.
+- Simple installation process.
+- Automatically organizes files by their extensions.
 - Dynamically creates folders for each unique file extension.
-- Allows users to specify a directory to organize via command-line arguments.
+- Allows users to specify the directory to organize through a graphical user interface.
+
+## Example
 
 ### Before
 
@@ -37,26 +43,18 @@ A simple Go application that organizes files into directories based on their fil
     └── notes.txt
 ```
 
-## Download(s)
+## Downloads
 
-You can download a precompiled version of the File Organizer for your operating system:
+Choose the version of File Organizer for your operating system:
 
-- [Download for Linux](https://github.com/pascalallen/file-organizer/releases/download/v1.0.0/file-organizer-linux)
-- [Download for macOS](https://github.com/pascalallen/file-organizer/releases/download/v1.0.0/file-organizer-macos)
-- [Download for Windows](https://github.com/pascalallen/file-organizer/releases/download/v1.0.0/file-organizer-windows.exe)
+- [Download for Linux](https://github.com/pascalallen/file-organizer/releases/download/v2.0.0/File.Organizer.tar.xz)
+- [Download for macOS](https://github.com/pascalallen/file-organizer/releases/download/v2.0.0/File.Organizer.app.zip)
+- [Download for Windows](https://github.com/pascalallen/file-organizer/releases/download/v2.0.0/File.Organizer.zip)
 
 ## Usage
 
-Once downloaded, you can run the program from the command line, specifying the directory you want to organize.
+After downloading and installing, simply open the app. You can select the directory you want to organize through the 
+app’s interface. For macOS users: Move the downloaded File Organizer app to your /Applications directory for ease of 
+access.
 
-### Linux/macOS:
-
-```bash
-./file-organizer-macos /path/to/your/directory
-```
-
-### Windows
-
-```bash
-file-organizer-windows.exe C:\path\to\your\directory
-```
+![File Organizer in Action](demo.gif)
