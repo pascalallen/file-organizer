@@ -2,20 +2,24 @@ package main
 
 import (
 	"fmt"
+	"fyne.io/fyne/v2"
+	"fyne.io/fyne/v2/app"
+	"fyne.io/fyne/v2/container"
+	"fyne.io/fyne/v2/widget"
 	"log"
 	"os"
 	"path/filepath"
 	"strings"
 )
 
-func OrganizeFiles(directory string) {
+func organizeFiles(directory string) {
 	files, err := os.ReadDir(directory)
 	if err != nil {
 		log.Fatalf("Error reading directory: %v", err)
 	}
 
 	for _, file := range files {
-		if file.IsDir() {
+		if file.IsDir() || strings.HasPrefix(file.Name(), ".") {
 			continue
 		}
 
@@ -26,7 +30,11 @@ func OrganizeFiles(directory string) {
 
 		extDir := filepath.Join(directory, ext[1:])
 		if _, err := os.Stat(extDir); os.IsNotExist(err) {
-			os.Mkdir(extDir, 0755)
+			err := os.Mkdir(extDir, 0755)
+			if err != nil {
+				log.Printf("Failed to create directory %s: %v", extDir, err)
+				continue
+			}
 		}
 
 		oldPath := filepath.Join(directory, file.Name())
@@ -40,15 +48,33 @@ func OrganizeFiles(directory string) {
 }
 
 func main() {
-	if len(os.Args) < 2 {
-		log.Fatalf("Please provide a directory to organize. Usage: %s <directory>", os.Args[0])
-	}
+	myApp := app.New()
+	myWindow := myApp.NewWindow("File Organizer")
+	myWindow.Resize(fyne.NewSize(500, 300))
 
-	directory := os.Args[1]
+	entry := widget.NewEntry()
+	entry.SetPlaceHolder("Enter directory path")
 
-	if _, err := os.Stat(directory); os.IsNotExist(err) {
-		log.Fatalf("Directory does not exist: %s", directory)
-	}
+	output := widget.NewLabel("")
 
-	OrganizeFiles(directory)
+	btn := widget.NewButton("Organize", func() {
+		dir := entry.Text
+		if _, err := os.Stat(dir); os.IsNotExist(err) {
+			output.SetText(fmt.Sprintf("Directory does not exist: %s", dir))
+			return
+		}
+		organizeFiles(dir)
+		output.SetText("Files organized successfully")
+	})
+
+	myWindow.SetContent(
+		container.NewVBox(
+			widget.NewLabel("File Organizer"),
+			entry,
+			btn,
+			output,
+		),
+	)
+
+	myWindow.ShowAndRun()
 }
